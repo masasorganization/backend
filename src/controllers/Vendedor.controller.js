@@ -26,7 +26,7 @@ VendedorCtrl.crear = async(req,res) => {
 
 }
 
-//Funcion listar Vendedors
+//Funcion listar Vendedores
 
 VendedorCtrl.listar = async (req,res) => {
 
@@ -38,7 +38,7 @@ VendedorCtrl.listar = async (req,res) => {
 
 //Encontrar Vendedor por ID
 
-VendedorCtrl.listarId = async(req,res) =>{
+VendedorCtrl.buscarporId = async(req,res) =>{
     
     //Uso el id que me da el usuario
     const id = req.params.id;

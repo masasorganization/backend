@@ -51,16 +51,6 @@ ProductoCtrl.listarId = async(req,res) =>{
 
 }
 
-//Listar producto por categoria
-
-    ProductoCtrl.porCategoria = async(req,res) => {
-
-    const id = req.params.id;
-    const respuesta = await Producto.find({categoria:id})
-    res.json(respuesta)
-
-}
-
 //Eliminar Producto
 
 ProductoCtrl.eliminar = async (req,res) =>{
