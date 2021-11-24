@@ -6,6 +6,7 @@ const JefeSchema = new Schema({
 
     nombre:String,
     correo:String,
+    usuario: String,
     contrasena:String
 })
 

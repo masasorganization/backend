@@ -9,25 +9,26 @@ const jwt = require ('jsonwebtoken');
 
 JefeCtrl.crearJefe = async(req,res) =>{
     //Require
-    const {nombre,correo,contrasena} = req.body;
+    const {nombre,correo,usuario,contrasena} = req.body;
     
     //Creo el objeto para ser enviado
     const NuevoJefe = new Jefe({
         nombre,
         correo,
+        usuario,
         contrasena
     })
 
     //------Validaaciones
     //1. Si existe el correo, no me deje ingresar el objeto a la BD
     //Obtener el correo
-    const correoJefe = await Jefe.findOne({correo:correo})
+    const usuarioJefe = await Jefe.findOne({usuario:usuario})
 
     //Validar
-    if (correoJefe){
+    if (usuarioJefe){
 
         res.json({
-            mensaje:'El correo ya existe' 
+            mensaje:'El usuario ya existe' 
         })
 
     }
@@ -52,14 +53,14 @@ JefeCtrl.crearJefe = async(req,res) =>{
 
 JefeCtrl.login = async(req,res) => {
 
-    const {correo, contrasena} = req.body
-    const jefe = await Jefe.findOne({correo:correo})
+    const {usuario, contrasena} = req.body
+    const jefe = await Jefe.findOne({usuario:usuario})
 
     //El correo está en la BD?
     if(!jefe){
         return res.json({
 
-            mensaje: 'Correo o contraseña invalidos'
+            mensaje: 'Usuario o contraseña invalidos'
         })
     }
 
@@ -69,12 +70,12 @@ JefeCtrl.login = async(req,res) => {
 
     if(match){
 
-        const token = jwt.sign({_id:Jefe._id}, 'Secreta')
+        const token = jwt.sign({_id:jefe._id}, 'Secreta')
         res.json({
 
             mensaje:'Bienvenido!',
-            id:Jefe._id,
-            nombre:Jefe.nombre,
+            id:jefe._id,
+            nombre:jefe.nombre,
             token
 
 
@@ -82,7 +83,7 @@ JefeCtrl.login = async(req,res) => {
     }
     else{
         res.json({
-            mensaje:'Correo o contraseña invalidos'
+            mensaje:'Usuario o contraseña invalidos'
         })
     }
 
