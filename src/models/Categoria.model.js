@@ -4,8 +4,8 @@ const {Schema} = mongoose
 const CategoriaSchema = new Schema({
 
     fechaCreacion:Date,
-    nombre:String,
-    descripcion:String    
+    nombre:{type:String, required:true},
+    descripcion:{type:String, required:true}    
 })
 
 module.exports = mongoose.model ('categoria', CategoriaSchema)
