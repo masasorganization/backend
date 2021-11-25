@@ -3,10 +3,10 @@ const {Schema} = mongoose
 
 const VendedorSchema = new Schema({
 
-    nombres:{type:String, required:true, maxlength:40},
-    apellidos:{type:String, required:true, maxlength:40},
-    usuario:{type:String, required:true, maxlength:40},
-    password:{type:String, required:true, maxlength:40},
+    nombres:{type:String, required:true},
+    apellidos:{type:String, required:true},
+    usuario:{type:String, required:true},
+    password:{type:String, required:true},
     jefe:String,
 })
 

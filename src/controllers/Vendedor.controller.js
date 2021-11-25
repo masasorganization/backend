@@ -4,15 +4,14 @@ const Vendedor = require('../models/Vendedor.model')
 
 VendedorCtrl.crear = async(req,res) => {
 
-    const {nombres, apellidos, usuario, pass, puesto, jefe} = req.body
+    const {nombres, apellidos, usuario, password, jefe} = req.body
 
     const NuevoVendedor = new Vendedor({
 
         nombres,
         apellidos,
         usuario,
-        pass,
-        puesto,
+        password,
         jefe
     })
 
