@@ -21,7 +21,7 @@ app.use('/jefe', require('./routes/Jefe.route'));
 app.use('/producto', require('./routes/Producto.route'))
 app.use('/vendedor', require('./routes/Vendedor.route'))
 app.use('/venta', require('./routes/Venta.route'))
-app.use('/categoria', require('./routes/Categoria.route'))
+
 
 // Port Config
 
