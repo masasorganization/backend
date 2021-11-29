@@ -6,13 +6,13 @@ const VentaSchema = new Schema({
     fechaCreacion:Date,
     categoria:{type:String},
     nombrePto:{type:String},
-    porciones:{type:String},
-    topping:{type:String},
-    valor:{type:String},
+    tamano:{type:String},
+    complementos:{type:String},
+    unidades:{type:String},
+    valorFinal:{type:String},
 //--------------------------------------------
 // DATOS CLIENTE
 //--------------------------------------------
-
     nombres:{type:String},
     apellidos:{type:String},
     tipoDocumento:{type:String},

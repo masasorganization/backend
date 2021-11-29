@@ -4,15 +4,12 @@ const Producto = require('../models/Producto.model')
 
 ProductoCtrl.crear = async(req,res) => {
 
-    const {fechaCreacion, categoria, nombrePto, porciones, topping, valor, descripcion, ingredientes} = req.body
+    const {categoria, nombrePto, valor, descripcion, ingredientes} = req.body
 
     const NuevoProducto = new Producto({
 
-        fechaCreacion,
         categoria ,
         nombrePto,
-        porciones,
-        topping,
         valor,
         descripcion,
         ingredientes,
