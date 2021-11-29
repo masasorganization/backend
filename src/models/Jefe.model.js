@@ -4,10 +4,10 @@ const {Schema}= mongoose;
 //Creamos el Schema
 const JefeSchema = new Schema({
 
-    nombre:{type:String, required:true},
-    correo:{type:String, required:true},
-    usuario: {type:String, required:true},
-    contrasena:{type:String, required:true}
+    nombre:{type:String},
+    correo:{type:String},
+    usuario: {type:String},
+    contrasena:{type:String}
 })
 
 //Generando el modelo

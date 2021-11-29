@@ -4,13 +4,13 @@ const {Schema} = mongoose
 const ProductoSchema = new Schema({
 
     fechaCreacion:Date,
-    categoria:{type:String, required:true},
-    nombre:{type:String, required:true},
-    porciones:{type:String, required:true},
-    topping:{type:String, required:false},
-    valor:{type:Number, required:true},
-    descripcion:{type:String, required:true},
-    ingredientes:{type:String, required:true},
+    categoria:{type:String},
+    nombre:{type:String},
+    porciones:{type:String},
+    topping:{type:String},
+    valor:{type:Number},
+    descripcion:{type:String},
+    ingredientes:{type:String},
     
     
 })

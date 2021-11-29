@@ -4,17 +4,15 @@ const {Schema} = mongoose
 const VentaSchema = new Schema({
 
     fechaCreacion:Date,
-    idCompra:String,
-    nombres:{type:String, required:true},
-    apellidos:{type:String, required:true},
-    tipoDocumento:{type:String, required:true},
-    numDocumento:{type:Number, required:true},
-    direccion:{type:String, required:true},
-    numeroCasa:{type:String, required:false},
-    barrio:{type:String, required:true},
-    telefono:{type:Number, required:true},
-    fechaEntrega:{type:Date, required:true},
-    vendedor:String        
+    nombres:{type:String},
+    apellidos:{type:String},
+    tipoDocumento:{type:String},
+    numDocumento:{type:Number},
+    direccion:{type:String},
+    numeroCasa:{type:String},
+    barrio:{type:String},
+    telefono:{type:Number},
+    fechaEntrega:{type:Date},
     
 })
 
