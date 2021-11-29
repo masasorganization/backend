@@ -3,7 +3,6 @@ const {Schema} = mongoose
 
 const ProductoSchema = new Schema({
 
-    fechaCreacion:Date,
     categoria:{type:String},
     nombre:{type:String},
     porciones:{type:String},

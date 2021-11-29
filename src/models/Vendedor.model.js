@@ -7,7 +7,7 @@ const VendedorSchema = new Schema({
     apellidos:{type:String, required:true},
     usuario:{type:String, required:true},
     password:{type:String, required:true},
-    jefe:String,
+    
 })
 
 module.exports = mongoose.model ('vendedor', VendedorSchema)

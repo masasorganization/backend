@@ -9,7 +9,6 @@ VentaCtrl.crear = async(req,res) => {
     const NuevaVenta = new Venta({
 
         fechaCreacion,
-        idCompra,
         nombres,
         apellidos,
         tipoDocumento,
@@ -18,8 +17,7 @@ VentaCtrl.crear = async(req,res) => {
         numeroCasa,
         barrio,
         telefono, 
-        fechaEntrega,
-        vendedor    
+        fechaEntrega    
     })
 
     const respuesta = await NuevaVenta.save()
