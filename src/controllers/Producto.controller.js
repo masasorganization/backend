@@ -4,13 +4,13 @@ const Producto = require('../models/Producto.model')
 
 ProductoCtrl.crear = async(req,res) => {
 
-    const {fechaCreacion, categoria, nombre, porciones, topping, valor, descripcion, ingredientes} = req.body
+    const {fechaCreacion, categoria, nombrePto, porciones, topping, valor, descripcion, ingredientes} = req.body
 
     const NuevoProducto = new Producto({
 
         fechaCreacion,
         categoria ,
-        nombre,
+        nombrePto,
         porciones,
         topping,
         valor,
@@ -79,8 +79,8 @@ ProductoCtrl.actualizar = async (req,res) =>{
 
 ProductoCtrl.buscarProducto = async (req,res) =>{
 
-    const nombre = req.params.nombre;
-    const respuesta = await Producto.find({nombre:{$regex:".*"+nombre+".*"}}, req.body)
+    const nombrePto = req.params.nombrePto;
+    const respuesta = await Producto.find({nombrePto:{$regex:".*"+nombrePto+".*"}}, req.body)
 
     res.json(respuesta)
 }

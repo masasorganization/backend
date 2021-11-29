@@ -4,11 +4,16 @@ const Venta = require('../models/Venta.model')
 
 VentaCtrl.crear = async(req,res) => {
 
-    const {fechaCreacion, idCompra, nombres, apellidos, tipoDocumento, numDocumento, direccion, numeroCasa, barrio, telefono, fechaEntrega, vendedor} = req.body
+    const {categoria, nombrePto, porciones, topping, valor, nombres,
+        apellidos, tipoDocumento, numDocumento, direccion, numeroCasa, barrio, telefono, fechaEntrega} = req.body
 
     const NuevaVenta = new Venta({
 
-        fechaCreacion,
+        categoria,
+        nombrePto,
+        porciones,
+        topping,
+        valor,
         nombres,
         apellidos,
         tipoDocumento,
@@ -58,8 +63,8 @@ VentaCtrl.listarId = async(req,res) =>{
 
     VentaCtrl.porCategoria = async(req,res) => {
 
-    const id = req.params.id;
-    const respuesta = await Venta.find({categoria:id})
+    const categoria = req.params.categoria;
+    const respuesta = await Venta.find({categoria:categoria})
     res.json(respuesta)
 
 }
@@ -88,7 +93,6 @@ VentaCtrl.actualizar = async (req,res) =>{
 }
 
 //Busqueda de Venta
-
 
 VentaCtrl.buscarVenta = async (req,res) =>{
 

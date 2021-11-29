@@ -4,6 +4,15 @@ const {Schema} = mongoose
 const VentaSchema = new Schema({
 
     fechaCreacion:Date,
+    categoria:{type:String},
+    nombrePto:{type:String},
+    porciones:{type:String},
+    topping:{type:String},
+    valor:{type:String},
+//--------------------------------------------
+// DATOS CLIENTE
+//--------------------------------------------
+
     nombres:{type:String},
     apellidos:{type:String},
     tipoDocumento:{type:String},
