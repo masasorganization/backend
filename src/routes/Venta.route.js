@@ -5,12 +5,12 @@ const VentaCtrl = require('../controllers/Venta.controller')
 
 const Auth = require('../helper/Auth')
 
-router.post('/crear', Auth.verificarToken, VentaCtrl.crear)
-router.get('/listarVentas', Auth.verificarToken, VentaCtrl.listar)
-router.get('/listar/:id', Auth.verificarToken, VentaCtrl.listarId)
-router.get('/listarporCategoria/:categoria', Auth.verificarToken, VentaCtrl.porCategoria)
-//router.delete('/eliminar/:id', Auth.verificarToken, VentaCtrl.eliminar) 
-router.put('/actualizar/:id', Auth.verificarToken, VentaCtrl.actualizar)
-router.get('/buscar/:nombres', Auth.verificarToken, VentaCtrl.buscarVenta)
+router.post('/crear', VentaCtrl.crear)
+router.get('/listarVentas', VentaCtrl.listar)
+router.get('/listar/:id', VentaCtrl.listarId)
+router.get('/listarporCategoria/:categoria', VentaCtrl.porCategoria)
+//router.delete('/eliminar/:id', VentaCtrl.eliminar) 
+router.put('/actualizar/:id', VentaCtrl.actualizar)
+router.get('/buscar/:nombres', VentaCtrl.buscarVenta)
 
 module.exports = router
