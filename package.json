@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/index.js",
+    "dev": "nodemon src/index.js --exec babel-node",
     "start": "node src/index.js"
   },
   "author": "Fer",
@@ -20,5 +20,12 @@
     "mongoose": "^6.0.12",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.14"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/node": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "helmet": "^4.6.0"
   }
 }

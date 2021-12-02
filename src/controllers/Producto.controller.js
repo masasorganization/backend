@@ -2,13 +2,15 @@ const ProductoCtrl={}
 
 const Producto = require('../models/Producto.model')
 
+//Crear producto
+//---------------------------------------------------------
 ProductoCtrl.crear = async(req,res) => {
 
     const {categoria, nombrePto, valor, descripcion, ingredientes} = req.body
 
     const NuevoProducto = new Producto({
 
-        categoria ,
+        categoria,
         nombrePto,
         valor,
         descripcion,
@@ -16,18 +18,17 @@ ProductoCtrl.crear = async(req,res) => {
     })
 
     const respuesta = await NuevoProducto.save()
-
+ 
     res.json({
 
-        mensaje: 'El producto se agregó satisfactoriamente'
-
+        mensaje: 'El producto se agregó satisfactoriamente',
+        
     })
 
 }
 
-
-//Funcion listar productos
-
+//Listar productos
+//---------------------------------------------------------
 ProductoCtrl.listar = async (req,res) => {
 
     const respuesta = await Producto.find()
@@ -36,45 +37,47 @@ ProductoCtrl.listar = async (req,res) => {
 
 }    
 
-//Encontrar producto por ID
-
-ProductoCtrl.listarId = async(req,res) =>{
-    
-    //Uso el id que me da el usuario
-    const id = req.params.id;
-
-    //Match de Ids
-    const respuesta = await Producto.findOne({_id:id})
-    res.json(respuesta)
-
-}
-
-//Eliminar Producto
-
-ProductoCtrl.eliminar = async (req,res) =>{
-    const id = req.params.id
-    await Producto.findByIdAndRemove({_id:id})
-
-    res.json({
-        mensaje: 'Producto eliminado'
-    })
-}
-
 //Actualizar Producto
-
+//---------------------------------------------------------
 ProductoCtrl.actualizar = async (req,res) =>{
 
     const id = req.params.id;
-    await Producto.findByIdAndUpdate({_id:id}, req.body)
+    //Encuentra el id y devuelve el nuevo req.body (la actualización de la info)
+    await Producto.findByIdAndUpdate({_id:id}, req.body) 
 
     res.json({
         mensaje:'Producto actualizado'
     })
 }
 
-//Busqueda de Producto
+//Eliminar Producto
+//---------------------------------------------------------
+ProductoCtrl.eliminar = async (req,res) =>{
+    const id = req.params.id
+    await Producto.findByIdAndRemove(id)
 
-ProductoCtrl.buscarProducto = async (req,res) =>{
+    res.status(204).json({
+        mensaje: 'Producto eliminado'
+    })
+}
+
+/////------------------------BUSQUEDAS--------------------------/////
+
+//Buscar por ID
+//---------------------------------------------------------
+ProductoCtrl.buscarPorId = async(req,res) =>{
+    
+    //Guardando el id que me da el usuario
+    const id = req.params.id;
+    //Encontrando por id
+    const respuesta = await Producto.findById(id)
+    res.json(respuesta)
+    
+}
+
+//Buscar por nombre
+//---------------------------------------------------------
+ProductoCtrl.buscarPorNombre = async (req,res) =>{
 
     const nombrePto = req.params.nombrePto;
     const respuesta = await Producto.find({nombrePto:{$regex:".*"+nombrePto+".*"}}, req.body)
@@ -82,8 +85,8 @@ ProductoCtrl.buscarProducto = async (req,res) =>{
     res.json(respuesta)
 }
 
-//Busqueda por categoria
-
+//Buscar por categoria
+//---------------------------------------------------------
 ProductoCtrl.buscarporCategoria = async (req,res) =>{
 
     const categoria = req.params.categoria;
