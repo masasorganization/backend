@@ -23,7 +23,6 @@ app.use('/usuarios', require('./routes/Jefe.route'));
 app.use('/productos', require('./routes/Producto.route'))
 app.use('/ventas', require('./routes/Venta.route'))
 
-
 // Port Config
  
 app.set('puerto', process.env.PORT || 4000);

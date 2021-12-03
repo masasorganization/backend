@@ -13,7 +13,7 @@ router.post('/login', JefeCtrl.login)
 
 ////////////////    CRUD    /////////////////////////
 router.post('/crear',  JefeCtrl.crear)
-router.get('/listarvendedores', JefeCtrl.listar)
+router.get('/listar', JefeCtrl.listar)
 router.put('/actualizar/:id',  JefeCtrl.actualizar)
 router.delete('/eliminar/:id', JefeCtrl.eliminar) 
 ////////////    Busquedas   ////////////////////////

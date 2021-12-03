@@ -7,7 +7,7 @@ const {verificarToken,isAdmin} = require ('../helper/Auth2');
 
 ////////////////    CRUD    /////////////////////////
 router.post('/crear', VentaCtrl.crear)
-router.get('/listarVentas', VentaCtrl.listar)
+router.get('/listar', VentaCtrl.listar)
 router.put('/actualizar/:id', VentaCtrl.actualizar)
 router.delete('/eliminar/:id', VentaCtrl.eliminar) 
 ////////////    Busquedas   ////////////////////////
