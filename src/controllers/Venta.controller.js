@@ -64,9 +64,9 @@ VentaCtrl.actualizar = async (req,res) =>{
 //---------------------------------------------------------
 VentaCtrl.eliminar = async (req,res) =>{
     const id = req.params.id
-    await Venta.findByIdAndRemove(id)
+    await Venta.findByIdAndRemove({_id:id}, req.body)
 
-    res.status(204).json({
+    res.json({
         mensaje: 'Venta eliminada'
     })
 }
@@ -90,7 +90,7 @@ VentaCtrl.buscarPorId = async(req,res) =>{
 //---------------------------------------------------------
 VentaCtrl.buscarPorNombre = async (req,res) =>{
 
-    const nombres = req.params.nombres;
+    const nombres = req.params;
     const respuesta = await Venta.find({nombres:{$regex:".*"+nombres+".*"}}, req.body)
 
     res.json(respuesta)
