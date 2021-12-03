@@ -14,7 +14,7 @@ router.delete('/eliminar/:id', ProductoCtrl.eliminar)
 ////////////    Busquedas   ////////////////////////
 router.get('/buscarporid/:id', ProductoCtrl.buscarPorId)
 router.get('/buscarpornombre/:nombre', ProductoCtrl.buscarPorNombre)
-router.get('/buscarporcategoria/:categoria',  ProductoCtrl.buscarporCategoria)
+router.get('/buscarporcategoria/:categoria',  ProductoCtrl.buscarPorCategoria)
 
 //[verificarToken, isAdmin],
 

@@ -79,7 +79,7 @@ ProductoCtrl.buscarPorId = async(req,res) =>{
 //---------------------------------------------------------
 ProductoCtrl.buscarPorNombre = async (req,res) =>{
 
-    const nombrePto = req.params.nombrePto;
+    const nombrePto = req.params;
     const respuesta = await Producto.find({nombrePto:{$regex:".*"+nombrePto+".*"}}, req.body)
 
     res.json(respuesta)
@@ -87,7 +87,7 @@ ProductoCtrl.buscarPorNombre = async (req,res) =>{
 
 //Buscar por categoria
 //---------------------------------------------------------
-ProductoCtrl.buscarporCategoria = async (req,res) =>{
+ProductoCtrl.buscarPorCategoria = async (req,res) =>{
 
     const categoria = req.params.categoria;
     const respuesta = await Producto.find({categoria:{$regex:".*"+categoria+".*"}}, req.body)
