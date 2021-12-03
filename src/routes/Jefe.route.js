@@ -18,7 +18,7 @@ router.put('/actualizar/:id',  JefeCtrl.actualizar)
 router.delete('/eliminar/:id', JefeCtrl.eliminar) 
 ////////////    Busquedas   ////////////////////////
 router.get('/buscarporid/:id', JefeCtrl.buscarPorId)
-router.get('/buscarpornombres/:nombres', JefeCtrl.buscarPorNombre)
+router.get('/buscarpornombres/:nombres', JefeCtrl.buscarPorNombres)
 
 //[verificarToken, isAdmin],
 
