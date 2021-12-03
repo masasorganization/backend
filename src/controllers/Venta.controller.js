@@ -88,7 +88,7 @@ VentaCtrl.buscarPorId = async(req,res) =>{
 
 //Buscar por nombre
 //---------------------------------------------------------
-VentaCtrl.buscarPorNombre = async (req,res) =>{
+VentaCtrl.buscarPorNombres = async (req,res) =>{
 
     const nombres = req.params;
     const respuesta = await Venta.find({nombres:{$regex:".*"+nombres+".*"}}, req.body)

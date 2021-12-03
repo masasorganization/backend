@@ -24,8 +24,7 @@ const VentaSchema = new Schema({
     fechaEntrega:{type:Date},
     
 }, {
-    timestamps:true,
-    versionKey:false
+    timestamps:true    
     })
 
 module.exports = mongoose.model ('venta', VentaSchema)

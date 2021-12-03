@@ -12,7 +12,7 @@ router.put('/actualizar/:id', VentaCtrl.actualizar)
 router.delete('/eliminar/:id', VentaCtrl.eliminar) 
 ////////////    Busquedas   ////////////////////////
 router.get('/buscarporid/:id', VentaCtrl.buscarPorId)
-router.get('/buscarpornombre/:nombres', VentaCtrl.buscarPorNombre)
+router.get('/buscarpornombres/:nombres', VentaCtrl.buscarPorNombres)
 router.get('/buscarporcategoria/:categoria', VentaCtrl.buscarPorCategoria)
 
 //[verificarToken, isAdmin],
