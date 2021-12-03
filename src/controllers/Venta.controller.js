@@ -101,7 +101,7 @@ VentaCtrl.buscarPorNombres = async (req,res) =>{
     VentaCtrl.buscarPorCategoria = async(req,res) => {
 
     const categoria = req.params.categoria;
-    const respuesta = await Venta.find({categoria:categoria})
+    const respuesta = await Venta.find({categoria:{$regex:".*"+categoria+".*"}}, req.body)
     res.json(respuesta)
 
     }
