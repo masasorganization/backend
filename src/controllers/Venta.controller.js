@@ -2,6 +2,8 @@ const VentaCtrl={}
 
 const Venta = require('../models/Venta.model')
 
+//Crear producto
+//---------------------------------------------------------
 VentaCtrl.crear = async(req,res) => {
 
     const {categoria, nombrePto, tamano, complementos, unidades, valorFinal, nombres, apellidos, tipoDocumento, numDocumento, direccion, numeroCasa, barrio, telefono, fechaEntrega} = req.body
@@ -35,9 +37,8 @@ VentaCtrl.crear = async(req,res) => {
 
 }
 
-
-//Funcion listar Ventas
-
+//Listar ventas
+//---------------------------------------------------------
 VentaCtrl.listar = async (req,res) => {
 
     const respuesta = await Venta.find()
@@ -46,45 +47,12 @@ VentaCtrl.listar = async (req,res) => {
 
 }    
 
-//Encontrar Venta por ID
-
-VentaCtrl.listarId = async(req,res) =>{
-    
-    //Uso el id que me da el usuario
-    const id = req.params.id;
-
-    //Match de Ids
-    const respuesta = await Venta.findOne({_id:id})
-    res.json(respuesta)
-
-}
-
-//Listar Venta por categoria
-
-    VentaCtrl.porCategoria = async(req,res) => {
-
-    const categoria = req.params.categoria;
-    const respuesta = await Venta.find({categoria:categoria})
-    res.json(respuesta)
-
-}
-
-//Eliminar Venta
-
-VentaCtrl.eliminar = async (req,res) =>{
-    const id = req.params.id
-    await Venta.findByIdAndRemove({_id:id})
-
-    res.json({
-        mensaje: 'Venta eliminada'
-    })
-}
-
-//Actualizar Venta
-
+//Actualizar Producto
+//---------------------------------------------------------
 VentaCtrl.actualizar = async (req,res) =>{
 
     const id = req.params.id;
+    //Encuentra el id y devuelve el nuevo req.body (la actualización de la info)
     await Venta.findByIdAndUpdate({_id:id}, req.body)
 
     res.json({
@@ -92,9 +60,35 @@ VentaCtrl.actualizar = async (req,res) =>{
     })
 }
 
-//Busqueda de Venta
+//Eliminar Producto
+//---------------------------------------------------------
+VentaCtrl.eliminar = async (req,res) =>{
+    const id = req.params.id
+    await Venta.findByIdAndRemove(id)
 
-VentaCtrl.buscarVenta = async (req,res) =>{
+    res.status(204).json({
+        mensaje: 'Venta eliminada'
+    })
+}
+
+/////------------------------BUSQUEDAS--------------------------/////
+
+//Buscar por ID
+//---------------------------------------------------------
+VentaCtrl.buscarPorId = async(req,res) =>{
+    
+    //Uso el id que me da el usuario
+    const id = req.params.id;
+
+    //Match de Ids
+    const respuesta = await Venta.findById(id)
+    res.json(respuesta)
+
+}
+
+//Buscar por nombre
+//---------------------------------------------------------
+VentaCtrl.buscarPorNombre = async (req,res) =>{
 
     const nombres = req.params.nombres;
     const respuesta = await Venta.find({nombres:{$regex:".*"+nombres+".*"}}, req.body)
@@ -102,6 +96,15 @@ VentaCtrl.buscarVenta = async (req,res) =>{
     res.json(respuesta)
 }
 
+//Buscar por categoria
+//---------------------------------------------------------
+    VentaCtrl.buscarPorCategoria = async(req,res) => {
+
+    const categoria = req.params.categoria;
+    const respuesta = await Venta.find({categoria:categoria})
+    res.json(respuesta)
+
+    }
 
 
 module.exports = VentaCtrl

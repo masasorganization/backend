@@ -1,8 +1,10 @@
-import Jefe from '../models/Jefe.model'
-import Role from '../models/Role'
-import jwt from 'jsonwebtoken'
+const Auth2 ={}
 
-export const verificarToken = async (req,res,next)=>{
+const jwt = require('jsonwebtoken');
+const Jefe = require('../models/Jefe.model');
+const Role = require('../models/Role');
+
+const verificarToken = async (req,res,next)=>{
     try {
         const token = req.headers["autorizacion"];
 
@@ -23,7 +25,7 @@ export const verificarToken = async (req,res,next)=>{
 
 }
 
-export const isAdmin = async (req,res,next) => {
+const isAdmin = async (req,res,next) => {
    
      const jefe = await Jefe.findById(req.jefeId)
 
@@ -39,3 +41,4 @@ export const isAdmin = async (req,res,next) => {
       return res.status(403).json({mensaje:"Solo rol administrador"})
 }      
     
+module.exports = {verificarToken,isAdmin}

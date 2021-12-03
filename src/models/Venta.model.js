@@ -23,6 +23,9 @@ const VentaSchema = new Schema({
     telefono:{type:Number},
     fechaEntrega:{type:Date},
     
-})
+}, {
+    timestamps:true,
+    versionKey:false
+    })
 
 module.exports = mongoose.model ('venta', VentaSchema)

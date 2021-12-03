@@ -1,9 +1,9 @@
-import Role from "../models/Role";
+const Role = require('../models/Role');
 
 //initialSetup 
 //Inicializa los roles para poder usarlos en la comparación.
 
-export const createRoles = async () => {
+const createRoles = async () => {
 
     try {
         const count = await Role.estimatedDocumentCount();
@@ -23,3 +23,5 @@ export const createRoles = async () => {
         console.error(error)
     }
 };
+
+module.exports = createRoles

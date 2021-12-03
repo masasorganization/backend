@@ -1,16 +1,20 @@
-const {Router} =require ('express')
+const {Router} = require ('express')
 const router= Router()
 
 const VentaCtrl = require('../controllers/Venta.controller')
 
-const Auth = require('../helper/Auth')
+const {verificarToken,isAdmin} = require ('../helper/Auth2');
 
+////////////////    CRUD    /////////////////////////
 router.post('/crear', VentaCtrl.crear)
 router.get('/listarVentas', VentaCtrl.listar)
-router.get('/listar/:id', VentaCtrl.listarId)
-router.get('/listarporCategoria/:categoria', VentaCtrl.porCategoria)
-//router.delete('/eliminar/:id', VentaCtrl.eliminar) 
 router.put('/actualizar/:id', VentaCtrl.actualizar)
-router.get('/buscar/:nombres', VentaCtrl.buscarVenta)
+router.delete('/eliminar/:id', VentaCtrl.eliminar) 
+////////////    Busquedas   ////////////////////////
+router.get('/buscarporid/:id', VentaCtrl.buscarPorId)
+router.get('/buscarpornombre/:nombres', VentaCtrl.buscarPorNombre)
+router.get('/buscarporcategoria/:categoria', VentaCtrl.buscarPorCategoria)
+
+//[verificarToken, isAdmin],
 
 module.exports = router

@@ -1,5 +1,5 @@
-const mongoose = require ('mongoose')
-const {Schema} = mongoose
+const mongoose = require('mongoose');
+const {Schema}= mongoose;
 
 const ProductoSchema = new Schema({
 
@@ -13,4 +13,5 @@ const ProductoSchema = new Schema({
     versionKey:false
     })
 
-module.exports = mongoose.model ('producto', ProductoSchema)
+
+module.exports=mongoose.model('producto', ProductoSchema)
