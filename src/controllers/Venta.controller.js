@@ -6,7 +6,7 @@ const Venta = require('../models/Venta.model')
 //---------------------------------------------------------
 VentaCtrl.crear = async(req,res) => {
 
-    const {categoria, nombrePto, tamano, complementos, unidades, valorFinal, nombres, apellidos, tipoDocumento, numDocumento, direccion, numeroCasa, barrio, telefono, fechaEntrega} = req.body
+    const {categoria, nombrePto, tamano, complementos, unidades, valorFinal, nombres, apellidos, tipoDocumento, numeroDocumento, direccion, numeroCasa, barrio, telefono, fechaEntrega} = req.body
 
     const NuevaVenta = new Venta({
 
@@ -19,7 +19,7 @@ VentaCtrl.crear = async(req,res) => {
         nombres,
         apellidos,
         tipoDocumento,
-        numDocumento,
+        numeroDocumento,
         direccion,
         numeroCasa,
         barrio,
