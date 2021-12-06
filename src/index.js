@@ -17,7 +17,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 //---application/x-www-for-urlencoded
 app.use(express.urlencoded({ extended: true }))
-app.use(cors({origen : '*'})) //aqui debe ir el servicio donde este alojado el FrontEnd
+app.use(cors()) //aqui debe ir el servicio donde este alojado el FrontEnd //{origen : '*'}
 
 app.use('/usuarios', require('./routes/Jefe.route'));
 app.use('/productos', require('./routes/Producto.route'))
