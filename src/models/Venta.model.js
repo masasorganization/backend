@@ -18,7 +18,7 @@ const VentaSchema = new Schema({
     numeroCasa:{type:String},
     barrio:{type:String},
     telefono:{type:Number},
-    fechaEntrega:{type:Date},
+    fechaEntrega:{type:String},
     
 }, {
     timestamps:true,
