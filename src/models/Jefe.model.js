@@ -5,6 +5,7 @@ const {Schema}= mongoose;
 const JefeSchema = new Schema({
 
     nombre:{type:String},
+    apellido:{type:String},
     correo:{type:String},
     usuario: {type:String, require:true, unique:true},
     contrasena:{type:String, require:true, unique:true},
